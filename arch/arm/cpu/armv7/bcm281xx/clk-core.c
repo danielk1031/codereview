@@ -67,6 +67,7 @@ static inline int wait_bit(void *base, u32 offset, u32 bit, bool want)
 			return 0;	/* success */
 		udelay(1);
 	}
+	debug("lala\n");
 
 	debug("%s: timeout on addr 0x%p, waiting for bit %d to go to %d\n",
 	      __func__, base + offset, bit, want);
@@ -88,6 +89,7 @@ static int peri_clk_enable(struct clk *c, int enable)
 	debug("%s: %s\n", __func__, c->name);
 
 	clk_get_rate(c);	/* Make sure rate and sel are filled in */
+	clk_get_rate(c)
 
 	/* enable access */
 	writel(CLK_WR_ACCESS_PASSWORD, base + WR_ACCESS_OFFSET);
